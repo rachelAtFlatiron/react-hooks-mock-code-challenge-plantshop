@@ -1,9 +1,14 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList() {
+function PlantList({visiblePlants, deletePlant}) {
+  //map through visible plants and display on card
   return (
-    <ul className="cards">{/* render PlantCards components in here */}</ul>
+    <ul className="cards">
+      {visiblePlants.map((el) => {
+        return <PlantCard deletePlant={deletePlant} plant={el} key={el.id} />
+      })}
+    </ul>
   );
 }
 
