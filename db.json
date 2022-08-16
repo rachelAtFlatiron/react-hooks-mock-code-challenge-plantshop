@@ -4,7 +4,7 @@
       "id": 2,
       "name": "ZZ Plant",
       "image": "./images/zz-plant.jpg",
-      "price": 25.98
+      "price": "28.98"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "id": 5,
       "name": "Jade",
       "image": "./images/jade.jpg",
-      "price": 10.37
+      "price": "8.37"
     },
     {
       "id": 6,

@@ -41,11 +41,12 @@ function PlantPage() {
     }
     let res = await fetch(`${url}/${id}`, options)
     let data = await res.json()
+    console.log(data)
     setPlants(plants.filter(el => el.id !== id))
   }
 
   //update new plant state on form change
-  const updateNewPlant = function(e){
+  const updateFormPlant = function(e){
     let temp = {...formPlant} //NOTE THE DECONSTRUCTION
     temp[e.target.name] = e.target.value
     setFormPlant(temp);
@@ -61,7 +62,7 @@ function PlantPage() {
 
   return (
     <main>
-      <NewPlantForm formPlant={formPlant} handleChange={updateNewPlant} handleSubmit={addPlant} />
+      <NewPlantForm formPlant={formPlant} handleChange={updateFormPlant} handleSubmit={addPlant} />
       <Search handleChange={updateSearch} search={search} />
       <PlantList handleDelete={deletePlant} allPlants={displayedPlants}/>
     </main>
