@@ -10,14 +10,14 @@ function PlantPage() {
   const [search, setSearch] = useState('')
   const url = "http://localhost:6001/plants"
   
-  //get all plants from db
+  //~~~~~~~~~~~~get all plants from db
   const getPlants = async function(){
     let res = await fetch(url);
     let data = await res.json();
     setPlants(data)
   }
 
-  //add plant to db on form submit
+  //~~~~~~~~~~~add plant to db on form submit
   const addPlant = async function(e){
     e.preventDefault()
     let options = {
@@ -34,7 +34,7 @@ function PlantPage() {
     setPlants(plants => [...plants, data])
   }
 
-  //delete plant from db
+  //~~~~~~~~~~~~~delete plant from db
   const deletePlant = async function(id){
     let options={
       method: 'DELETE'
@@ -45,14 +45,14 @@ function PlantPage() {
     setPlants(plants.filter(el => el.id !== id))
   }
 
-  //update new plant state on form change
+  //~~~~~~~~~~~~~update new plant state on form change
   const updateFormPlant = function(e){
     let temp = {...formPlant} //NOTE THE DECONSTRUCTION
     temp[e.target.name] = e.target.value
     setFormPlant(temp);
   }
 
-  //update search and found/displayed plants
+  //~~~~~~~~~~~~~update search and found/displayed plants
   const updateSearch = function(e){
     setSearch(e.target.value)
   }

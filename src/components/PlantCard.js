@@ -6,15 +6,17 @@ function PlantCard({ plant, handleDelete }) {
   const [ displayPrice, setDisplayPrice ] = useState(plant.price)
   const url = "http://localhost:6001/plants"
 
-  //toggles 'in stock' and 'out of stock'
+  //~~~~~~~~~~~~~~~toggles 'in stock' and 'out of stock'
   const handleClick = function(){
     setInStock(inStock => !inStock)
   }
 
+  //~~~~~~~~~~~~~~~on price change update state
   const handlePriceChange = function(e){
     setFormPrice(e.target.value)
   }
 
+  //~~~~~~~~~~~~~~patch price in db on form submit
   const handlePriceSubmit = async function(e){
     e.preventDefault();
     let options = {
