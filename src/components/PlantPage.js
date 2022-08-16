@@ -6,7 +6,7 @@ import Search from "./Search";
 function PlantPage() {
   //note setting the initial state to empty array NOT null
   const [plants, setPlants] = useState([])
-  const [formPlant, setFormPlant] = useState({name: '', image: '', price: ''})
+  const [formPlant, setFormPlant] = useState({ name: '', image: '', price: ''})
   const [search, setSearch] = useState('')
   const url = "http://localhost:6001/plants"
   
@@ -15,6 +15,10 @@ function PlantPage() {
     let res = await fetch(url);
     let data = await res.json();
     setPlants(data)
+
+    // fetch(url)
+    // .then(res => res.json())
+    // .then(data => setPlants(data))
   }
 
   //~~~~~~~~~~~add plant to db on form submit
@@ -31,7 +35,15 @@ function PlantPage() {
     let data = await res.json()
     //reset form
     setFormPlant({name: '', image: '', price: ''})
+    //add new plant to state -> causes re-render...could also use getPlants()
     setPlants(plants => [...plants, data])
+
+    // fetch(url, options)
+    // .then(res => res.json())
+    // .then(data => {
+    //   setFormPlant({name: '', image: '', price: ''})
+    //   setPlants(plants => [...plants, data])
+    // })
   }
 
   //~~~~~~~~~~~~~delete plant from db
@@ -47,9 +59,15 @@ function PlantPage() {
 
   //~~~~~~~~~~~~~update new plant state on form change
   const updateFormPlant = function(e){
-    let temp = {...formPlant} //NOTE THE DECONSTRUCTION
-    temp[e.target.name] = e.target.value
-    setFormPlant(temp);
+    // let temp = {...formPlant} //NOTE THE DECONSTRUCTION
+    // temp[e.target.name] = e.target.value
+    // setFormPlant(temp);
+    setFormPlant(formPlant => {
+      return {
+        ...formPlant,
+        [e.target.name]: e.target.value
+      }
+    })
   }
 
   //~~~~~~~~~~~~~update search and found/displayed plants
@@ -58,6 +76,9 @@ function PlantPage() {
   }
 
   useEffect(() => getPlants(), [])
+
+
+  //filters through fetched data 
   const displayedPlants = plants.filter(el => el.name.toLowerCase().includes(search.toLowerCase()))
 
   return (

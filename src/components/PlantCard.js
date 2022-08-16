@@ -8,7 +8,7 @@ function PlantCard({ plant, handleDelete }) {
 
   //~~~~~~~~~~~~~~~toggles 'in stock' and 'out of stock'
   const handleClick = function(){
-    setInStock(inStock => !inStock)
+    setInStock(prevStatus => !prevStatus)
   }
 
   //~~~~~~~~~~~~~~~on price change update state
