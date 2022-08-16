@@ -34,6 +34,16 @@ function PlantPage() {
     setPlants(plants => [...plants, data])
   }
 
+  //delete plant from db
+  const deletePlant = async function(id){
+    let options={
+      method: 'DELETE'
+    }
+    let res = await fetch(`${url}/${id}`, options)
+    let data = await res.json()
+    setPlants(plants.filter(el => el.id !== id))
+  }
+
   //update new plant state on form change
   const updateNewPlant = function(e){
     let temp = {...formPlant} //NOTE THE DECONSTRUCTION
@@ -53,7 +63,7 @@ function PlantPage() {
     <main>
       <NewPlantForm formPlant={formPlant} handleChange={updateNewPlant} handleSubmit={addPlant} />
       <Search handleChange={updateSearch} search={search} />
-      <PlantList allPlants={displayedPlants}/>
+      <PlantList handleDelete={deletePlant} allPlants={displayedPlants}/>
     </main>
   );
 }
