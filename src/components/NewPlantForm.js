@@ -1,13 +1,14 @@
 import React from "react";
 
-function NewPlantForm() {
+function NewPlantForm({ handleChange, handleSubmit, formPlant }) {
   return (
     <div className="new-plant-form">
       <h2>New Plant</h2>
-      <form>
-        <input type="text" name="name" placeholder="Plant name" />
-        <input type="text" name="image" placeholder="Image URL" />
-        <input type="number" name="price" step="0.01" placeholder="Price" />
+      {/* internet prefers putting onChange on individual inputs */}
+      <form onChange={handleChange}  onSubmit={handleSubmit}>
+        <input type="text" name="name" placeholder="Plant name" value={formPlant.name}/>
+        <input type="text" name="image" placeholder="Image URL" value={formPlant.image} />
+        <input type="number" name="price" step="0.01" placeholder="Price" value={formPlant.price} />
         <button type="submit">Add Plant</button>
       </form>
     </div>
