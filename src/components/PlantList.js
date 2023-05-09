@@ -1,9 +1,17 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList() {
+function PlantList({ plants, updatePlant, deletePlant }) {
+
+  //can do this directly in JSX
+  const plantMap = [...plants].map(el => {
+    return <PlantCard plant={el} key={el.id} updatePlant={updatePlant} deletePlant={deletePlant} />
+  })
+
   return (
-    <ul className="cards">{/* render PlantCards components in here */}</ul>
+    <ul className="cards">
+      { plantMap }
+    </ul>
   );
 }
 
