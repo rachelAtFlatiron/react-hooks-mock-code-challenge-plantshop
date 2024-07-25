@@ -4,19 +4,13 @@
       "id": 1,
       "name": "Aloe",
       "image": "./images/aloe.jpg",
-      "price": 15.99
+      "price": 16.07
     },
     {
       "id": 2,
       "name": "ZZ Plant",
       "image": "./images/zz-plant.jpg",
       "price": 25.98
-    },
-    {
-      "id": 3,
-      "name": "Pilea peperomioides",
-      "image": "./images/pilea.jpg",
-      "price": 5.99
     },
     {
       "id": 4,
@@ -41,6 +35,24 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "image": "https://assets.weimgs.com/weimgs/ab/images/wcm/products/202408/0185/img37o.jpg",
+      "name": "Cactus",
+      "price": 478,
+      "id": 8
+    },
+    {
+      "image": "https://assets.weimgs.com/weimgs/ab/images/wcm/products/202423/0184/faux-protea-trad-harvest-arrangement-o.jpg",
+      "name": "Faux",
+      "price": 50,
+      "id": 9
+    },
+    {
+      "image": "https://assets.weimgs.com/weimgs/ab/images/wcm/products/202409/0048/faux-snake-ball-allium-stem-o.jpg",
+      "name": "Snake",
+      "price": 30,
+      "id": 10
     }
   ]
 }
